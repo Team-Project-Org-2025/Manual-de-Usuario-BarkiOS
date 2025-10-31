@@ -1,0 +1,138 @@
+        /* Reset y estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Estilos para la portada */
+        .portada {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            page-break-after: always;
+            background-color: #f8f9fa;
+            margin: 0 -20px;
+            padding: 20px;
+        }
+
+        .portada h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .portada .subtitle {
+            font-size: 1.5em;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .portada .logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+        
+        .portada .logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border: none;
+            box-shadow: none;
+            border-radius: 50%;
+        }
+
+        .portada .version {
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* Estilos para el contenido */
+        .contenido {
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Estilos para impresión */
+        @media print {
+            @page {
+                margin: 1.5cm;
+                size: A4;
+            }
+            
+            body {
+                padding: 0;
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            .portada {
+                height: 90vh;
+                margin: 0;
+                padding: 0;
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                page-break-after: always;
+            }
+            
+            .portada .logo {
+                margin: 0 auto 30px;
+            }
+            
+            .contenido {
+                margin-top: 20px;
+                page-break-before: always;
+            }
+            
+            img:not(.logo img) {
+                max-width: 80%;
+                margin: 10px auto;
+                display: block;
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            p, ul, ol, table, div:not(.portada) {
+                page-break-inside: avoid;
+            }
+        }
